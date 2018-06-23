@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd ">
+	<bean id="cat" class="com.lovo.ioc.bean.Cat">
+	<property name="catName" value="小花猫"></property>
+	<property name="catAge" value="5"></property>
+	</bean>
+	<bean id="cat2" class="com.lovo.ioc.bean.Cat">
+	    <constructor-arg value="xh"></constructor-arg>
+	     <constructor-arg value="5"></constructor-arg>
+	</bean>
+	<bean id="qianjiang" class="com.lovo.ioc.bean.QianJiang">
+	<property name="cat"  ref="cat"></property>
+	<property name="name" value="钱江"></property>
+	<property name="cat.catName" value="小花2"></property>
+	</bean>
+	
+	<!-- db -->
+	<bean id="userDB" class="com.lovo.ioc.db.UserDB">	
+	</bean>
+	<!-- DAO -->
+	<bean id="userDao" class="com.lovo.ioc.dao.impl.UserDaoImpl">	
+	  <property name="userdb" ref="userDB"></property>
+	</bean>
+		<!-- service -->
+	<bean id="userService" class="com.lovo.ioc.service.impl.UserServiceImpl">	
+	  <property name="userDao" ref="userDao"></property>
+	</bean>
+</beans>	
+
+		
+		
+	

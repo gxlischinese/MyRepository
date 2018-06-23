@@ -1,0 +1,52 @@
+8
+
+dir
+34
+https://user-20161104va/svn/j153/springIOCJ153/src/resouce/hibernate
+https://user-20161104va/svn/j153
+
+
+
+2018-04-20T09:06:52.045347Z
+34
+admin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7c0558fc-8cf9-074b-96c2-02373e162858
+
+hibernate-spring.xml
+file
+
+
+
+
+2018-04-20T09:10:26.847000Z
+446807770f79990dcf61f6caa5f8b4ab
+2018-04-20T09:06:52.045347Z
+34
+admin
+
+jdbc.properties
+file
+
+
+
+
+2018-04-20T09:10:26.855000Z
+0a2f8afaeaefc5fe311af63367d1e144
+2018-04-20T09:06:52.045347Z
+34
+admin
+

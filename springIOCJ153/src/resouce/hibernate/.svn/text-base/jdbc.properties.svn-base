@@ -1,0 +1,7 @@
+jdbc.url=jdbc:mysql://118.89.37.210/tb?useUnicode=true&characterEncoding=UTF-8
+jdbc.driver=com.mysql.jdbc.Driver
+jdbc.username=root
+jdbc.password=51aKrwtDfT
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=true
+hibernate.hbm2ddl.auto=update

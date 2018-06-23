@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd ">
+  <!-- 扫描的包 -->
+  <context:component-scan base-package="com.lovo.ioc.hibernate"></context:component-scan>
+   <context:property-placeholder location="classpath:resouce/hibernate/jdbc.properties"/>
+    <!-- datasource -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="url" value="${jdbc.url}"></property>
+    <property name="username" value="${jdbc.username}"></property>
+    <property name="password" value="${jdbc.password}"></property>
+    <property name="driverClassName" value="${jdbc.driver}"></property>
+   
+    </bean>
+    <!-- sesssionFactory -->
+    <bean id="localSessionFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+     <!-- 配置数据源 -->
+     <property name="dataSource" ref="dataSource"></property>
+     <!-- 配置hibernate特有的属性 -->
+     	<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>						
+			</props>
+		</property>
+     <!-- 扫描hibernate 对象映射 -->
+     <property name="packagesToScan" value="com.lovo.ioc.hibernate.entity"></property>
+    </bean>
+    
+    <!-- 配置hibernate专用的事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+     <property name="sessionFactory" ref="localSessionFactoryBean"></property>
+    </bean>
+    
+     <!-- 根据事务管理器获得事务通知 -->
+      <tx:advice id="hibernateAdvice" transaction-manager="transactionManager">
+         <tx:attributes>
+        <!--      <tx:method name="save*"/>-->
+            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Execption"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="get*" read-only="true"/>
+         </tx:attributes>
+      </tx:advice>
+    <aop:config>
+        <!-- 切点是我们那些方法需要事务管理，一般情况是service 的接口 -->
+         <aop:pointcut expression="execution(* com.lovo.ioc.hibernate.service.*.*(..)  )" id="mybaitisPointCut"/>
+       <!-- 增强通知把切点和事务通知进行关联 -->
+       <aop:advisor advice-ref="hibernateAdvice" pointcut-ref="mybaitisPointCut"/>
+    </aop:config>
+   </beans>

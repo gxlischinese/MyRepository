@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/j153/!svn/ver/17/springIOCJ153/src/com/lovo/ioc/mybatis/bean
+END
+SellBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/j153/!svn/ver/14/springIOCJ153/src/com/lovo/ioc/mybatis/bean/SellBean.java
+END
+UserBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/j153/!svn/ver/13/springIOCJ153/src/com/lovo/ioc/mybatis/bean/UserBean.java
+END
+UserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/j153/!svn/ver/13/springIOCJ153/src/com/lovo/ioc/mybatis/bean/UserMapper.xml
+END
+RepertoryMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/j153/!svn/ver/17/springIOCJ153/src/com/lovo/ioc/mybatis/bean/RepertoryMapper.xml
+END
+RepertoryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/j153/!svn/ver/14/springIOCJ153/src/com/lovo/ioc/mybatis/bean/RepertoryBean.java
+END
+SellMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/j153/!svn/ver/14/springIOCJ153/src/com/lovo/ioc/mybatis/bean/SellMapper.xml
+END
