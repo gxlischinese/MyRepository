@@ -1,40 +1,0 @@
-8
-
-dir
-34
-https://user-20161104va/svn/j153/springIOCJ153/src/com/lovo/ioc/mybatis
-https://user-20161104va/svn/j153
-
-
-
-2018-04-16T08:38:04.122092Z
-17
-admin
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-7c0558fc-8cf9-074b-96c2-02373e162858
-
-bean
-dir
-
-dao
-dir
-
-service
-dir
-
-util
-dir
-
